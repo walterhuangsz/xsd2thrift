@@ -410,7 +410,8 @@ public class XSDParser implements ErrorHandler {
                     parent = parent.getBaseType();
                 }
             }
-
+           
+            
             processInheritance(st, cType, sset);
             st.setParent(cType.getBaseType().getName());
         }
@@ -539,11 +540,11 @@ public class XSDParser implements ErrorHandler {
                 } else if (term.isElementDecl()) {
                     if (term.asElementDecl().getType().getName() == null) {
                         final String typeName = processType(term.asElementDecl().getType(), term.asElementDecl().getName(), xss);
-                        st.addField(term.asElementDecl().getName(), typeName, goingup, p.getMaxOccurs().intValue() != 1, term
+                        st.addField(term.asElementDecl().getName(), typeName, goingup, p.getMaxOccurs() != 1, term
                                 .asElementDecl().getFixedValue(), xsdMapping);
                     } else {
                         st.addField(term.asElementDecl().getName(), term.asElementDecl().getType().getName(), goingup, p.getMaxOccurs()
-                                .intValue() != 1, term.asElementDecl().getFixedValue(), xsdMapping);
+                                 != 1, term.asElementDecl().getFixedValue(), xsdMapping);
                     }
                 }
             }

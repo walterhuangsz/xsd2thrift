@@ -70,6 +70,8 @@ public class Main
 		int						i;
 		IMarshaller				im;
 		
+		//args=new String[]{"--protobuf","--output=c:\\shiporder.proto","c:\\shiporder.xsd"};
+		
 		correct = true;
 		im = null;
 		
@@ -120,7 +122,7 @@ public class Main
 						usage("Only one marshaller can be specified at a time.");
 					}
 				}
-				else if(args[i].startsWith("--filename="))
+				else if(args[i].startsWith("--output="))
 				{
 					param = args[i].split("=")[1];
 					xp.setOutputStream(new FileOutputStream(new File(param)));
